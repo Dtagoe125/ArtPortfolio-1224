@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .hero-section {
+            background-image: url('https://img.youtube.com/vi/xZXHpTcukP8/maxresdefault.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .gallery-section {
+            padding: 4rem 0;
+        }
+        .gallery-year-section {
+            margin-bottom: 4rem;
+        }
+        .gallery-year-section h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .artwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+        .artwork-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .artwork-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .artwork-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .contact-form label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #F56600;
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #E55100;
+        }
+        .social-media-icons a {
+            margin: 0 10px;
+            color: #F56600;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-media-icons a:hover {
+            color: #E55100;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<header class="bg-transparent z-50 fixed w-full p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-white">
+            <a href="#">
+                <span class="text-orange-500">ARTIST</span>
+                NAME
+            </a>
+        </h1>
+        <div class="social-media-icons text-2xl">
+            <a href="https://www.tiktok.com/@artistname" target="_blank">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/artistname" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/artistname" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="hero-section">
+    <video id="hero-video" src="https://www.youtube.com/watch?v=xZXHpTcukP8" type="video/mp4" muted loop></video>
+    <div class="container mx-auto text-center z-10">
+        <h1 class="text-6xl font-bold text-white mb-4">Welcome to My Art Portfolio</h1>
+        <p class="text-2xl text-white mb-8">Explore my artwork and discover my creative journey</p>
+        <button class="btn btn-primary btn-lg" id="explore-btn">EXPLORE</button>
+    </div>
+</section>
+
+<section class="gallery-section" id="gallery">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-8">Gallery</h2>
+        <div class="gallery-year-section">
+            <h3>2025</h3>
+            <div class="artwork-grid">
+                <div class="artwork-item">
+                    <img src="./assets/2025/img1.jpg" alt="Artwork Example">
+                </div>
+                <div class="artwork-item">
+                    <img src="./assets/2025/img2.jpg" alt="Artwork Example">
+                </div>
+                <div class="artwork-item">
+                    <img src="./assets/2025/img3.jpg" alt="Artwork Example">
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-year-section">
+            <h3>2024</h3>
+            <div class="artwork-grid">
+                <div class="artwork-item">
+                    <img src="./assets/2024/img1.jpg" alt="Artwork Example">
+                </div>
+                <div class="artwork-item">
+                    <img src="./assets/2024/img2.jpg" alt="Artwork Example">
+                </div>
+                <div class="artwork-item">
+                    <img src="./assets/2024/img3.jpg" alt="Artwork Example">
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-year-section">
+            <h3>2023</h3>
+            <div class="artwork-grid">
+                <div class="artwork-item">
+                    <img src="./assets/2023/img1.jpg" alt="Artwork Example">
+                </div>
+                <div class="artwork-item">
+                    <img src="./assets/2023/img2.jpg" alt="Artwork Example">
+                </div>
+                <div class="artwork-item">
+                    <img src="./assets/2023/img3.jpg" alt="Artwork Example">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact-form py-16" id="contact">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-8">Contact</h2>
+        <form action="https://script.google.com/macros/s/AKfycbwN6Yk56gH7V_oH1H9d3xV89u6f-4V1m8O2gU2I3Y3fM22rU9Yv9oE1rQ9v3lK6g/exec" method="post" class="flex flex-col gap-4">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" class="input input-bordered w-full" required />
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" class="input input-bordered w-full" required />
+            </div>
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Enter your message" class="textarea textarea-bordered w-full" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </form>
+    </div>
+</section>
+
+<footer class="bg-gray-800 text-white py-8 mt-16">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2023 Artist Name. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        $('#hero-video').get(0).play();
+    });
+
+    const exploreBtn = document.getElementById('explore-btn');
+    const gallerySection = document.getElementById('gallery');
+
+    function exploreGallery() {
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: gallerySection,
+            ease: 'power2.inOut',
+        });
+    }
+
+    exploreBtn.addEventListener('click', exploreGallery);
+
+    ScrollReveal().reveal('.hero-section h1, .hero-section p, .hero-section button', { delay: 500, origin: 'bottom' });
+    ScrollReveal().reveal('.gallery-section h2, .gallery-section .gallery-year-section', { delay: 500, origin: 'top' });
+    ScrollReveal().reveal('.contact-form h2, .contact-form form', { delay: 500, origin: 'bottom' });
+</script>
+</body>
+</html>
