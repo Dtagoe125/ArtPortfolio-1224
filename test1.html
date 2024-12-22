@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Art Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+  <div id="app" class="min-h-screen flex flex-col">
+    <header class="bg-white py-4 shadow-md">
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <h1 class="text-2xl font-semibold text-gray-800">Virtual Art Gallery</h1>
+
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <input type="text" v-model="searchQuery" placeholder="Search artworks..." class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+              <i class="material-icons text-gray-400">search</i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow p-4">
+      <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div v-for="artwork in filteredArtworks" :key="artwork.id" class="bg-white rounded-md shadow-md overflow-hidden">
+          <img :src="artwork.imageUrl" :alt="artwork.title" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800">{{ artwork.title }}</h2>
+            <p class="text-gray-600">{{ artwork.artist }}</p>
+            <p class="text-gray-500 text-sm">{{ artwork.description }}</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        searchQuery: '',
+        artworks: [
+          {
+            id: 1,
+            title: 'The Starry Night',
+            artist: 'Vincent van Gogh',
+            imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
+            description: 'A beautiful night sky with swirling stars and a village below.',
+          },
+          {
+            id: 2,
+            title: 'Water Lilies',
+            artist: 'Claude Monet',
+            imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Claude_Monet_-_Water_Lilies_-_Google_Art_Project.jpg/1024px-Claude_Monet_-_Water_Lilies_-_Google_Art_Project.jpg',
+            description: 'A serene pond with water lilies in bloom.',
+          },
+        ]
+      },
+      computed: {
+        filteredArtworks() {
+          if (this.searchQuery === '') {
+            return this.artworks;
+          } else {
+            const query = this.searchQuery.toLowerCase();
+            return this.artworks.filter(artwork => {
+              return artwork.title.toLowerCase().includes(query) || artwork.artist.toLowerCase().includes(query);
+            });
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
