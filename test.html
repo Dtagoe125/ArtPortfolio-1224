@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzIA0LD5e4W50/0w98o2MIlc4e1+zV3/wT39j5oR770l76j49P2543" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlv7D8bbTUQsMcW04j84No8ynHgaMJyPq9KJq0Zk6CgMgRg4+6hK9qg==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #212529;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      padding-top: 2rem;
+    }
+
+    /* Navigation */
+    header {
+      background-color: #343a40;
+      color: #fff;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffc107;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+    }
+
+    .gallery-item a {
+      display: block;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.25rem;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a href="#" class="navbar-brand">The Gallery</a>
+        <button aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarSupportedContent"
+          data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button" class="navbar-toggler">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="#" aria-current="page" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mt-5">
+    <h1>Welcome to the Gallery</h1>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <a href="https://unsplash.it/1200/768.jpg?image=251" data-lightbox="gallery"><img alt="Image 1"
+            src="https://unsplash.it/600.jpg?image=251"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://unsplash.it/1200/768.jpg?image=252" data-lightbox="gallery"><img alt="Image 2"
+            src="https://unsplash.it/600.jpg?image=252"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://unsplash.it/1200/768.jpg?image=253" data-lightbox="gallery"><img alt="Image 3"
+            src="https://unsplash.it/600.jpg?image=253"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://unsplash.it/1200/768.jpg?image=254" data-lightbox="gallery"><img alt="Image 4"
+            src="https://unsplash.it/600.jpg?image=254"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://unsplash.it/1200/768.jpg?image=255" data-lightbox="gallery"><img alt="Image 5"
+            src="https://unsplash.it/600.jpg?image=255"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://unsplash.it/1200/768.jpg?image=256" data-lightbox="gallery"><img alt="Image 6"
+            src="https://unsplash.it/600.jpg?image=256"></a>
+      </div>
+    </div>
+  </div>
+
+  <section id="contact">
+    <div class="container mt-5">
+      <h2>Contact Us</h2>
+      <div class="contact-form">
+        <form method="POST" action="https://formsubmit.co/your@email.com">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input required="" type="text" name="name" id="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input required="" name="email" id="email" type="email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea required="" rows="4" name="message" id="message"></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+          <input value="https://yourdomain.com/thankyou.html" name="_next" type="hidden">
+          <input value="false" name="_captcha" type="hidden">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p> 2023 The Gallery. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowf3MDr/13/E+3hK3j7z0wQeX3uQ6nZw/0b57t2/96j0a"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"
+    integrity="sha512-k2GFCTbp93pgJw5aMMO+tOIY99hOa1aElcLuydLhN2J0u/oPztyg3u/OiL/tjyh3ip/YhxD+a0ZYD19YqAekxA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
